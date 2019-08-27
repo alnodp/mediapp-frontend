@@ -3,6 +3,7 @@ import {MedicoService} from '../../_services/medico.service';
 import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {Medico} from '../../_models/medico';
 import {MedicoDialogComponent} from './medico-dialog/medico-dialog.component';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-medico',
@@ -49,12 +50,16 @@ export class MedicoComponent implements OnInit {
   }
 
   elimiar(medico: Medico) {
-    this.medicoService.eliminar(medico.idMedico).subscribe( () => {
-      this.medicoService.listar().subscribe( data => {
+    this.medicoService.eliminar(medico.idMedico)
+      .pipe(
+        switchMap( () => {
+          return this.medicoService.listar();
+        })
+      )
+      .subscribe( data => {
         this.medicoService.medicoCambio.next(data);
         this.medicoService.mensajeCambio.next('Se eliminó el registro del médico');
       });
-    });
   }
 
   openDialog(medico?: Medico) {

@@ -12,6 +12,10 @@ import { PacienteEdicionComponent } from './pages/paciente/paciente-edicion/paci
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MedicoComponent } from './pages/medico/medico.component';
 import { MedicoDialogComponent } from './pages/medico/medico-dialog/medico-dialog.component';
+import { ExamenComponent } from './pages/examen/examen.component';
+import { EspecialidadComponent } from './pages/especialidad/especialidad.component';
+import { ExamenDialogComponent } from './pages/examen/examen-dialog/examen-dialog.component';
+import { EspecialidadDialogComponent } from './pages/especialidad/especialidad-dialog/especialidad-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { MedicoDialogComponent } from './pages/medico/medico-dialog/medico-dialo
     PacienteComponent,
     PacienteEdicionComponent,
     MedicoComponent,
-    MedicoDialogComponent
+    MedicoDialogComponent,
+    ExamenComponent,
+    EspecialidadComponent,
+    ExamenDialogComponent,
+    EspecialidadDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,9 @@ import { MedicoDialogComponent } from './pages/medico/medico-dialog/medico-dialo
     MatToolbarModule
   ],
   entryComponents: [
-    MedicoDialogComponent
+    MedicoDialogComponent,
+    ExamenDialogComponent,
+    EspecialidadDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

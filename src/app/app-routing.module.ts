@@ -3,19 +3,21 @@ import {Routes, RouterModule} from '@angular/router';
 import {PacienteComponent} from './pages/paciente/paciente.component';
 import {PacienteEdicionComponent} from './pages/paciente/paciente-edicion/paciente-edicion.component';
 import {MedicoComponent} from './pages/medico/medico.component';
+import {ExamenComponent} from './pages/examen/examen.component';
+import {EspecialidadComponent} from './pages/especialidad/especialidad.component';
 
 
 const routes: Routes = [
   {
     path: 'paciente', component: PacienteComponent,
     children: [
-      {path: 'nuevo', component: PacienteEdicionComponent},
-      {path: 'edicion/:id', component: PacienteEdicionComponent}
+      { path: 'nuevo', component: PacienteEdicionComponent },
+      { path: 'edicion/:id', component: PacienteEdicionComponent }
     ]
   },
-  {
-    path: 'medico', component: MedicoComponent
-  }
+  { path: 'medico', component: MedicoComponent },
+  { path: 'examen', component: ExamenComponent },
+  { path: 'especialidad', component: EspecialidadComponent }
 ];
 
 @NgModule({

@@ -42,12 +42,14 @@ export class MedicoDialogComponent implements OnInit {
         });
     } else {
       this.medicoService.registrar(this.medico)
-        .subscribe( () => {
-          this.medicoService.listar()
-            .subscribe( medicos => {
-              this.medicoService.medicoCambio.next(medicos);
-              this.medicoService.mensajeCambio.next('Se registró el médico');
-            });
+        .pipe(
+          switchMap( () => {
+            return this.medicoService.listar();
+          })
+        )
+        .subscribe( medicos => {
+          this.medicoService.medicoCambio.next(medicos);
+          this.medicoService.mensajeCambio.next('Se registró el médico');
         });
     }
     this.dialogRef.close();

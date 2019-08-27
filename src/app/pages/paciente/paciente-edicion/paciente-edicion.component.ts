@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {PacienteService} from '../../../_services/paciente.service';
 import {Paciente} from '../../../_models/paciente';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-paciente-edicion',
@@ -55,7 +56,7 @@ export class PacienteEdicionComponent implements OnInit {
   }
 
   operar(value) {
-    let paciente = new Paciente();
+    const paciente = new Paciente();
     paciente.idPaciente = this.form.value.id;
     paciente.nombres = this.form.value.nombres;
     paciente.apellidos = this.form.value.apellidos;
@@ -66,22 +67,25 @@ export class PacienteEdicionComponent implements OnInit {
 
     if (this.edicion) {
       this.pacienteService.modificar(paciente)
-        .subscribe( () => {
-          this.pacienteService.listar()
-            .subscribe( data => {
-              this.pacienteService.pacienteCambio.next(data);
-              this.pacienteService.mensajeCambio.next('Se modificó el paciente.');
-            });
+        .pipe(
+          switchMap( () => {
+            return this.pacienteService.listar();
+          })
+        )
+        .subscribe( data => {
+          this.pacienteService.pacienteCambio.next(data);
+          this.pacienteService.mensajeCambio.next('Se modificó el paciente.');
         });
     } else {
       this.pacienteService.registrar(paciente)
-        .subscribe( () => {
-          this.pacienteService.listar()
-            .subscribe( data => {
-              this.pacienteService.pacienteCambio.next(data);
-              this.pacienteService.mensajeCambio.next('Se registró el paciente.');
-
-            });
+        .pipe(
+          switchMap( () => {
+            return this.pacienteService.listar();
+          })
+        )
+        .subscribe( data => {
+          this.pacienteService.pacienteCambio.next(data);
+          this.pacienteService.mensajeCambio.next('Se registró el paciente.');
         });
     }
 

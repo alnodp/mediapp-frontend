@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {PacienteService} from '../../_services/paciente.service';
 import {Paciente} from '../../_models/paciente';
 import {MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-paciente',
@@ -47,12 +48,16 @@ export class PacienteComponent implements OnInit {
   }
 
   elimiar(idPaciente: number) {
-    this.pacienteService.eliminar(idPaciente).subscribe( () => {
-      this.pacienteService.listar().subscribe( data => {
+    this.pacienteService.eliminar(idPaciente)
+      .pipe(
+        switchMap( () => {
+          return this.pacienteService.listar();
+        })
+      )
+      .subscribe( data => {
         this.pacienteService.pacienteCambio.next(data);
         this.pacienteService.mensajeCambio.next('Se eliminó el registro del paciente');
       });
-    });
   }
 
 }
