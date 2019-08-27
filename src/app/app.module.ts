@@ -7,15 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './material/material.module';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatToolbarModule} from '@angular/material';
 import { PacienteEdicionComponent } from './pages/paciente/paciente-edicion/paciente-edicion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MedicoComponent } from './pages/medico/medico.component';
+import { MedicoDialogComponent } from './pages/medico/medico-dialog/medico-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacienteComponent,
-    PacienteEdicionComponent
+    PacienteEdicionComponent,
+    MedicoComponent,
+    MedicoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule
+  ],
+  entryComponents: [
+    MedicoDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

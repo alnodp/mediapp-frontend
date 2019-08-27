@@ -31,7 +31,7 @@ export class PacienteComponent implements OnInit {
         this.snackBar.open(msg, 'Aviso', {
           duration: 2000
         });
-      })
+      });
 
     this.pacienteService.listar()
       .subscribe(pacientes => {

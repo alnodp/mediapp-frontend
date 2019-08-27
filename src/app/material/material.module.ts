@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatCardModule,
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatPaginatorModule, MatSnackBarModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatSidenavModule,
+  MatSnackBarModule,
   MatSortModule,
-  MatTableModule
+  MatTableModule,
+  MatToolbarModule
 } from '@angular/material';
 
 const myComponents = [
@@ -18,7 +25,12 @@ const myComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatDividerModule,
+  MatToolbarModule,
+  MatDialogModule
 ];
 
 @NgModule({
