@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule,
-  MatCardModule,
-  MatDialogModule,
-  MatDividerModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatMenuModule,
-  MatPaginatorModule,
-  MatSidenavModule,
-  MatSnackBarModule,
-  MatSortModule,
   MatTableModule,
-  MatToolbarModule
+  MatSortModule,
+  MatButtonModule,
+  MatPaginatorModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule,
+  MatSnackBarModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatDividerModule,
+  MatToolbarModule,
+  MatDialogModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule, MAT_DATE_LOCALE, MatExpansionModule
 } from '@angular/material';
 
 const myComponents = [
@@ -30,12 +33,19 @@ const myComponents = [
   MatMenuModule,
   MatDividerModule,
   MatToolbarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatExpansionModule
 ];
 
 @NgModule({
   declarations: [],
   imports: myComponents,
-  exports: myComponents
+  exports: myComponents,
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
+  ]
 })
 export class MaterialModule { }

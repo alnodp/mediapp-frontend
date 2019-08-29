@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './material/material.module';
-import {MatButtonModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatSelectModule, MatToolbarModule} from '@angular/material';
 import { PacienteEdicionComponent } from './pages/paciente/paciente-edicion/paciente-edicion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MedicoComponent } from './pages/medico/medico.component';
@@ -16,6 +16,7 @@ import { ExamenComponent } from './pages/examen/examen.component';
 import { EspecialidadComponent } from './pages/especialidad/especialidad.component';
 import { ExamenDialogComponent } from './pages/examen/examen-dialog/examen-dialog.component';
 import { EspecialidadDialogComponent } from './pages/especialidad/especialidad-dialog/especialidad-dialog.component';
+import { ConsultaComponent } from './pages/consulta/consulta.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EspecialidadDialogComponent } from './pages/especialidad/especialidad-d
     ExamenComponent,
     EspecialidadComponent,
     ExamenDialogComponent,
-    EspecialidadDialogComponent
+    EspecialidadDialogComponent,
+    ConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { EspecialidadDialogComponent } from './pages/especialidad/especialidad-d
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule
   ],
   entryComponents: [
     MedicoDialogComponent,
