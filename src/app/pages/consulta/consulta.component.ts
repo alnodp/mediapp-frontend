@@ -10,7 +10,7 @@ import {ExamenService} from '../../_services/examen.service';
 import {DetalleConsulta} from '../../_models/detalle-consulta';
 import {MatSnackBar} from '@angular/material';
 import {Consulta} from '../../_models/consulta';
-import {ConsultaListaExamenDto} from '../../_models/consulta-lista-examen-dto';
+import {ConsultaListaExamenDto} from '../../_dto/consulta-lista-examen-dto';
 import {ConsultaService} from '../../_services/consulta.service';
 
 @Component({

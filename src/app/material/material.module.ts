@@ -16,7 +16,10 @@ import {
   MatDialogModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule, MAT_DATE_LOCALE, MatExpansionModule
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
+  MatExpansionModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 const myComponents = [
@@ -37,7 +40,8 @@ const myComponents = [
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatAutocompleteModule
 ];
 
 @NgModule({
